@@ -57,6 +57,9 @@ importers:
 
   web:
     dependencies:
+      '@repo/api':
+        specifier: workspace:*
+        version: link:../api
       next:
         specifier: 15.2.3
         version: 15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
