@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@repo/api",
   "type": "module",
   "exports": {
     "./client": "./orval/generated/client.ts",
