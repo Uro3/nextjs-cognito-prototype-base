@@ -1,5 +1,5 @@
 packages:
-  - apps/*
-  - packages/*
+  - web
 onlyBuiltDependencies:
   - '@biomejs/biome'
+  - sharp
