@@ -2,7 +2,7 @@ import { createRoute } from '@hono/zod-openapi';
 
 import { PostSchema } from '@/schema/post';
 
-export const list = createRoute({
+export default createRoute({
   method: 'get',
   path: '/',
   operationId: 'ListPosts',

@@ -19,3 +19,8 @@ export interface Post {
   updatedAt: string;
 }
 
+export type CreatePostBody = {
+  /** メッセージ */
+  message: string;
+};
+

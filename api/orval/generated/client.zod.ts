@@ -4,4 +4,10 @@
  * Prototype API
  * OpenAPI spec version: 0.1.0
  */
+import {
+  z as zod
+} from 'zod';
 
+export const createPostBody = zod.object({
+  "message": zod.coerce.string().describe('メッセージ')
+})

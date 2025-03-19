@@ -8,3 +8,7 @@ export const PostSchema = z
     updatedAt: z.date().openapi({ description: '更新日時' }),
   })
   .openapi('Post');
+
+export const CreatePostSchema = PostSchema.pick({
+  message: true,
+});

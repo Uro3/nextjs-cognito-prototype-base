@@ -5,10 +5,44 @@
  * OpenAPI spec version: 0.1.0
  */
 import type {
+  CreatePostBody,
   Post
 } from './client.schemas';
 
 import { customFetch } from '../custom-fetch';
+
+export type createPostResponse201 = {
+  data: Post
+  status: 201
+}
+    
+export type createPostResponseComposite = createPostResponse201;
+    
+export type createPostResponse = createPostResponseComposite & {
+  headers: Headers;
+}
+
+export const getCreatePostUrl = () => {
+
+
+  
+
+  return `http://dummy.example.com/api/posts`
+}
+
+export const createPost = async (createPostBody: CreatePostBody, options?: RequestInit): Promise<createPostResponse> => {
+  
+  return customFetch<createPostResponse>(getCreatePostUrl(),
+  {      
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      createPostBody,)
+  }
+);}
+
+
 
 export type listPostsResponse200 = {
   data: Post[]

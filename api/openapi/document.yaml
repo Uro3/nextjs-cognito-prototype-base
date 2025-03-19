@@ -29,6 +29,29 @@ components:
   parameters: {}
 paths:
   /api/posts:
+    post:
+      operationId: CreatePost
+      tags:
+        - Posts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: メッセージ
+              required:
+                - message
+      responses:
+        '201':
+          description: 成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
     get:
       operationId: ListPosts
       tags:
