@@ -9,13 +9,14 @@
   },
   "scripts": {
     "dev": "concurrently -n hono,orval --pad-prefix pnpm:dev:hono pnpm:dev:orval",
-    "dev:hono": "NODE_ENV=development tsx watch src/index.ts",
+    "dev:hono": "NODE_ENV=development tsx watch --env-file=.env.local src/index.ts",
     "dev:orval": "orval --watch"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.8",
     "@hono/swagger-ui": "^0.5.1",
     "@hono/zod-openapi": "^0.19.2",
+    "aws-jwt-verify": "^5.0.0",
     "hono": "^4.7.4",
     "js-yaml": "^4.1.0",
     "zod": "^3.24.2"

@@ -5,6 +5,8 @@ export type AppEnv = {
 };
 
 export type EnvVar = {
+  COGNITO_CLIENT_ID: string;
+  COGNITO_USER_POOL_ID: string;
   NODE_ENV: string;
 };
 

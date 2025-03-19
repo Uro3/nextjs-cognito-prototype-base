@@ -6,11 +6,13 @@ import { logger } from 'hono/logger';
 import { dump } from 'js-yaml';
 
 import { createApp, handleError } from '@/app';
+import { auth } from '@/middlewares/auth';
 import posts from '@/routes/posts';
 
 const app = createApp();
 
 app.use(logger());
+app.use('/api/*', auth);
 
 app.onError(handleError);
 

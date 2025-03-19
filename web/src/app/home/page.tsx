@@ -11,13 +11,15 @@ export default async function Home() {
   const posts: Post[] = [];
 
   try {
-    const { data } = await listPosts();
+    const { authHeader } = await getSessionInfo();
+    const { data } = await listPosts({ headers: authHeader });
     posts.push(...data);
   } catch (e) {
     if (e instanceof ApiError) {
       console.warn(e.messages);
+    } else {
+      console.error(e);
     }
-    console.error(e);
   }
 
   return (
