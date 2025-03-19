@@ -1,0 +1,24 @@
+{
+  "name": "@repo/db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./schema": "./src/schema.ts",
+    "./client": "./src/client.ts"
+  },
+  "scripts": {
+    "dev": "drizzle-kit studio",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push --force"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.40.1",
+    "pg": "8.14.1"
+  },
+  "devDependencies": {
+    "@types/pg": "8.11.11",
+    "drizzle-kit": "^0.30.5"
+  }
+}

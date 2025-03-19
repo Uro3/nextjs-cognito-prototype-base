@@ -7,7 +7,12 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "db:push": {
+      "cache": false,
+      "interactive": true
+    },
     "dev": {
+      "dependsOn": ["@repo/db#db:push"],
       "cache": false,
       "persistent": true
     }
