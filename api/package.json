@@ -1,18 +1,30 @@
 {
   "name": "api",
   "type": "module",
+  "exports": {
+    "./client": "./orval/generated/client.ts",
+    "./schema": "./orval/generated/client.schemas.ts",
+    "./zod": "./orval/generated/client.zod.ts",
+    "./error": "./orval/client.error.ts"
+  },
   "scripts": {
-    "dev": "NODE_ENV=development tsx watch src/index.ts"
+    "dev": "concurrently -n hono,orval --pad-prefix pnpm:dev:hono pnpm:dev:orval",
+    "dev:hono": "NODE_ENV=development tsx watch src/index.ts",
+    "dev:orval": "orval --watch"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.8",
     "@hono/swagger-ui": "^0.5.1",
     "@hono/zod-openapi": "^0.19.2",
     "hono": "^4.7.4",
+    "js-yaml": "^4.1.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.11.17",
+    "concurrently": "^9.1.2",
+    "orval": "^7.7.0",
     "tsx": "^4.7.1"
   }
 }

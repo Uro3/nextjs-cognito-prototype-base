@@ -1,6 +1,9 @@
-import { logger } from 'hono/logger';
+import { writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { serve } from '@hono/node-server';
 import { swaggerUI } from '@hono/swagger-ui';
+import { logger } from 'hono/logger';
+import { dump } from 'js-yaml';
 
 import { createApp, handleError } from '@/app';
 import posts from '@/routes/posts';
@@ -24,6 +27,10 @@ if (process.env.NODE_ENV === 'development') {
 
   app.doc('/openapi/doc', openapiConfig);
   app.get('/openapi/ui', swaggerUI({ url: '/openapi/doc' }));
+
+  const outputPath = resolve('openapi', 'document.yaml');
+  const specYaml = dump(app.getOpenAPIDocument(openapiConfig), {});
+  writeFileSync(outputPath, specYaml);
 }
 
 serve(

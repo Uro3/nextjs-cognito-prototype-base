@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  version: 0.1.0
+  title: Prototype API
+components:
+  schemas:
+    Post:
+      type: object
+      properties:
+        id:
+          type: number
+          minimum: 0
+          exclusiveMinimum: true
+          description: ID
+        message:
+          type: string
+          description: メッセージ
+        createdAt:
+          type: string
+          description: 作成日時
+        updatedAt:
+          type: string
+          description: 更新日時
+      required:
+        - id
+        - message
+        - createdAt
+        - updatedAt
+  parameters: {}
+paths:
+  /api/posts:
+    get:
+      operationId: ListPosts
+      tags:
+        - Posts
+      responses:
+        '200':
+          description: 取得レコード
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
