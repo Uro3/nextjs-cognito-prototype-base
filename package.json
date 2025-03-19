@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "nextjs-cognito-prototype-base",
   "private": true,
   "scripts": {
     "build": "turbo run build",
