@@ -7,7 +7,14 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [".next/", ".turbo/", ".vercel/", "dist/", "package.json"]
+    "ignore": [
+      ".next/",
+      ".turbo/",
+      ".vercel/",
+      "dist/",
+      "generated/",
+      "package.json"
+    ]
   },
   "formatter": {
     "enabled": true,
