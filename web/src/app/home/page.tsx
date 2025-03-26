@@ -6,6 +6,7 @@ import type { Post } from '@repo/api/schema';
 
 import { getSessionInfo } from '@/lib/session';
 import { createPostAction } from './_actions/createPostAction';
+import PostCard from './_components/PostCard';
 import PostForm from './_components/PostForm';
 
 export default async function Home() {
@@ -25,7 +26,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen p-2 gap-3">
+    <div className="flex flex-col items-center justify-start p-2 gap-3 min-w-md">
       <p>{providerUser.email} でログインしています</p>
       <Link
         href="/signout"
@@ -33,13 +34,12 @@ export default async function Home() {
       >
         ログアウト
       </Link>
-      <hr className="w-full" />
+      <hr className="w-full text-gray-200 dark:text-gray-700" />
       <PostForm submitAction={createPostAction} />
-      <div className="flex flex-col gap-1">
+      <hr className="w-full text-gray-200 dark:text-gray-700" />
+      <div className="flex flex-col gap-2">
         {posts.map((post) => (
-          <div key={post.id} className="p-2 border-1 border-gray-600">
-            <p>{post.message}</p>
-          </div>
+          <PostCard key={post.id} post={post} />
         ))}
       </div>
     </div>

@@ -15,7 +15,7 @@ export default async function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center">
       <h1 className="text-2xl font-semibold mb-2">
         ようこそ！プロトタイプアプリへ！
       </h1>
