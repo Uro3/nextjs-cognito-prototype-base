@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@conform-to/react": "^1.2.2",
+    "@conform-to/zod": "^1.2.2",
     "@repo/api": "workspace:*",
     "next": "15.2.3",
     "next-auth": "5.0.0-beta.25",

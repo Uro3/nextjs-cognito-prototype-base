@@ -5,6 +5,8 @@ import { ApiError } from '@repo/api/error';
 import type { Post } from '@repo/api/schema';
 
 import { getSessionInfo } from '@/lib/session';
+import { createPostAction } from './_actions/createPostAction';
+import PostForm from './_components/PostForm';
 
 export default async function Home() {
   const { providerUser } = await getSessionInfo();
@@ -32,6 +34,7 @@ export default async function Home() {
         ログアウト
       </Link>
       <hr className="w-full" />
+      <PostForm submitAction={createPostAction} />
       <div className="flex flex-col gap-1">
         {posts.map((post) => (
           <div key={post.id} className="p-2 border-1 border-gray-600">

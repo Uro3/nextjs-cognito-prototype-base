@@ -31,10 +31,6 @@ export default defineConfig({
             query: true,
             header: false,
           },
-          coerce: {
-            body: true,
-            query: true,
-          },
         },
       },
     },

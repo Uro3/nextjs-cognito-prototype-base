@@ -14,6 +14,7 @@ components:
           description: ID
         message:
           type: string
+          minLength: 1
           description: メッセージ
         createdAt:
           type: string
@@ -42,6 +43,7 @@ paths:
               properties:
                 message:
                   type: string
+                  minLength: 1
                   description: メッセージ
               required:
                 - message

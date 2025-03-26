@@ -9,5 +9,5 @@ import {
 } from 'zod';
 
 export const createPostBody = zod.object({
-  "message": zod.coerce.string().describe('メッセージ')
+  "message": zod.string().min(1).describe('メッセージ')
 })

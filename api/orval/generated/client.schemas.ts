@@ -11,7 +11,10 @@ export interface Post {
    * @exclusiveMinimum
    */
   id: number;
-  /** メッセージ */
+  /**
+   * メッセージ
+   * @minLength 1
+   */
   message: string;
   /** 作成日時 */
   createdAt: string;
@@ -20,7 +23,10 @@ export interface Post {
 }
 
 export type CreatePostBody = {
-  /** メッセージ */
+  /**
+   * メッセージ
+   * @minLength 1
+   */
   message: string;
 };
 
